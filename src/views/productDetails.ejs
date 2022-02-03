@@ -1,0 +1,71 @@
+<%- include('includes/header') %>
+
+    <div class="section white-bar menu">
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/products">Produtos</a></li>
+                <li><a href="/promocao">Promoções</a></li>
+            </ul>
+        </nav>
+    </div>
+    </aside>
+
+    <div class="white-bar"></div>
+
+    <section class="section">
+
+
+        <div class="product-details">
+            <div class="gallery-img">
+                <img class="image-details" src="/public/uploads/pictures/<%= product.img %>" alt="">
+            </div>
+
+            <div>
+                <div>
+                    <h2>
+                        <%= product.name %>
+                    </h2>
+                </div>
+                <div>
+                    <p>
+                        <%= product.description %>
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        <% if(product.salePrice) { %>
+                            De: R$ <s>
+                                <%= product.price %>,00
+                            </s>
+                            <br>
+                            Por: R$ <%= product.salePrice %>,00
+                                <% }else { %>
+                                    Preço: R$ <%= product.price %>,00
+                                        <% } %>
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Altura aproximada: <%= product.dimension %> cm
+                    </p>
+                </div>
+
+                <div>
+                    <p>
+                        Disponibilidade: <%= product.availability %>
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+
+    </section>
+
+
+
+    <a class="whatsapp-contact" href="https://api.whatsapp.com/send?phone=5547997078204"></a>
+
+    <a class="back-to-top" href="#">Voltar ao topo</a>
+
+    <%- include('includes/footer') %>

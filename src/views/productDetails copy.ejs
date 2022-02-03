@@ -1,0 +1,50 @@
+<%- include('includes/header') %>
+
+    <section class="products-banner section intro-content">
+        <div class="banner-bg">
+            <img src="/assets/img/background/products-bg.png" alt="">
+        </div>
+
+    </section>
+
+    <div class="section intro-content">
+
+        <section class="intro view-port section">
+            <div class="intro-product-texto">
+                <h2>
+                    <%= product.name %>
+                </h2>
+
+            </div>
+
+            <div class="product-details">
+                <img src="/public/uploads/pictures/<%= product.img %>" alt="">
+                
+                <p>
+                    <%= product.description %>
+                    <br>
+                    <% if(product.oldPrice) { %>
+                        <br>De: R$ <s>
+                            <%= product.oldPrice %>
+                        </s>
+                        <br>
+                        Por: R$<%= product.price %>
+                            <% }else { %>
+                                <br>
+                                Preço: R$<%= product.price %>
+                                <% } %>
+                                    <br>
+                                    <%= product.availability %>
+                </p>
+            </div>
+
+    </div>
+
+
+    </section>
+
+    <a class="whatsapp-contact" href="https://api.whatsapp.com/send?phone=5547997078204"></a>
+
+    <a class="back-to-top" href="#">Voltar ao topo</a>
+
+    <%- include('includes/footer') %>

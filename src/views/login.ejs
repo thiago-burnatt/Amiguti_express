@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="/assets/js/bundle.js"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Área administrativa</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Acesse sua conta</h2>
+        <br>
+        <%- include ('includes/messages')%>
+            <br>
+            <form class="login-form" action="/admin/loggedin" method="POST">
+                <input type="hidden" name="_csrf" value=<%=csrfToken %> >
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" class="form-control" placeholder="Digite sua senha" name="password">
+                </div>
+                <button type="submit" class="btn btn-default">Entrar</button>
+            </form>
+    </div>
+
+
+
+</body>
+
+</html>

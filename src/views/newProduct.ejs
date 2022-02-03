@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Amiguti - admin</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="/products">Produtos</a></li>
+        <li><a href="/promocao">Promoções</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/admin/logout"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container">
+    <h2 class="admin-title">Cadastro de novos produtos</h2>
+    <br>
+    <%- include ('includes/messages')%>
+
+      <br>
+      <form class="form-product" action="/product/register/?_csrf=<%=csrfToken%>" method="POST"
+        enctype="multipart/form-data">
+        <div class="form-group">
+          <label class="admin-label" for="nome">Nome</label>
+          <input class="form-control" type="text" name="name">
+        </div>
+        <div class="form-group">
+          <label class="admin-label"  for="preco">Preço</label>
+          <input class="form-control" type="number" name="price">
+        </div>
+
+        <div class="form-group">
+          <label class="admin-label"  for="salePrice">Preço promocional</label>
+          <input class="form-control" type="number" name="salePrice">
+        </div>
+
+        <div class="form-group">
+          <label class="admin-label"  for="availability">Disponibilidade</label>
+          <input class="form-control" type="text" name="availability">
+        </div>
+
+        <div class="form-group">
+          <label class="admin-label"  for="availability">Altura (cm)</label>
+          <input class="form-control" type="text" name="dimension">
+        </div>
+
+        <div class="form-group">
+          <label class="admin-label"  for="description">Descrição:</label>
+          <textarea class="form-control" rows="5" name="description"></textarea>
+        </div>
+
+
+        <div class="form-group">
+          <label class="admin-label"  for="picture">Adicionar foto</label>
+          <input class="form-control" type="file" name="picture" id="picture">
+        </div>
+
+        <div class="checkbox form-group">
+          <label class="admin-label"  for="products"><input type="checkbox" name="specialSection" id="specialSection"> Seção especial</label>
+        </div>
+
+        <button type="submit" class="btn btn-default submit">Cadastrar</button>
+      </form>
+
+  </div>
+  <div class="container">
+    <h2 class="admin-title">Produtos cadastrados</h2>
+    <table class="table form-group">
+      <thead>
+        <tr class="admin-label" >
+          <th>Nome</th>
+          <th>Foto</th>
+          <th>Preço</th>
+          <th>Categoria</th>
+          <th>Editar</th>
+          <th>Apagar</th>
+
+        </tr>
+      </thead>
+      <tbody>
+
+        <% products.forEach(product=> { %>
+
+          <tr class="admin-label" >
+            <td>
+              <%= product.name %>
+            </td>
+            <td><img src="/public/uploads/pictures/<%= product.img %>" width=" 50" height="50"" alt=""></td>
+            <td>R$ <%= product.price %>,00</td>
+
+            <% if(!product.salePrice && product.specialSection !== 'on') { %>
+              <td>Produto</td>
+              <% } %>
+
+                <% if(product.salePrice && product.specialSection !== 'on') { %>
+                  <td>Promoção</td>
+                  <% } %>
+
+                  <% if(product.specialSection === 'on' ) { %>
+                    <td>Especial</td>
+                    <% } %>
+
+                  <td><a href=" /product/index/details/<%=product._id %>"><button type="button"
+                class="btn btn-primary">Editar</button></a></td>
+            <td><a href="/product/index/delete/<%= product._id %>"><button type="button"
+                  class="btn btn-danger">Apagar</button></a></td>
+
+          </tr>
+
+
+          <% }) %>
+
+      </tbody>
+    </table>
+  </div>
+
+  <%- include ('includes/footerAdmin')%>
+
+
+</body>
+
+</html>

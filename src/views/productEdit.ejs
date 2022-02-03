@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Cadastro</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h2 class="admin-title">Editar produto</h2>
+    <form class="form-product-edit" action="/product/update/<%= product._id %>?_csrf=<%=csrfToken%>" method="POST"
+      enctype="multipart/form-data">
+
+
+      <div class="form-group">
+        <label class="admin-label" for="nome">Nome</label>
+        <input class="form-control" type="text" name="name" value="<%= product.name %>">
+      </div>
+
+      <div class="form-group">
+        <label class="admin-label" for="preco">Preço</label>
+        <input class="form-control" type="number" name="price" value="<%= product.price %>">
+      </div>
+
+      <div class="form-group">
+        <label class="admin-label" for="salePrice">Preço promocional</label>
+        <input class="form-control" type="number" name="salePrice" value="<%= product.salePrice %>">
+      </div>
+
+      <div class="form-group">
+        <label class="admin-label" for="availability">Disponibilidade</label>
+        <input class="form-control" type="text" name="availability" value="<%= product.availability %>">
+      </div>
+
+      <div class="form-group">
+        <label class="admin-label" for="availability">Altura (cm)</label>
+        <input class="form-control" type="text" name="dimension" value="<%= product.dimension %>">
+      </div>
+
+      <div class="form-group">
+        <label class="admin-label" for="description">Descrição:</label>
+        <textarea class="form-control" rows="5" name="description"><%= product.description %></textarea>
+      </div>
+
+      <div class="checkbox form-group">
+        <label class="admin-label" for="products"><input type="checkbox" name="specialSection" id="specialSection"> Seção especial</label>
+      </div>
+
+      <button type="submit" class="btn btn-default submit">Atualizar</button>
+
+    </form>
+  </div>
+
+  <%- include ('includes/footerAdmin')%>
+
+</body>
+
+</html>

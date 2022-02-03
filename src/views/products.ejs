@@ -1,0 +1,62 @@
+<%- include('includes/header') %>
+
+    <div class="section white-bar menu">
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/promocao">Promoções</a></li>
+            </ul>
+        </nav>
+    </div>
+    </aside>
+
+    <div class="white-bar"></div>
+
+    <section class="products-banner section intro-content">
+        <div class="banner-bg">
+            <img src="/public/img/products-bg.png" alt="">
+        </div>
+
+    </section>
+
+    <section class="intro view-port section">
+        <div class="intro-product-texto">
+            <h2>Confira nossa seção de produtos selecionados</h2>
+            <p>Feitos com fio 100% algodão; enchimento com fibra siliconada antialérgica e olhos com travas de
+                segurança. Podem ser personalizados!</p>
+        </div>
+
+        <div class="products-grid section intro-content">
+
+
+
+            <% products.forEach(product=> { %>
+
+                <% if(!product.salePrice && product.specialSection !== 'on') { %>
+
+                    <div class="gallery-img">
+                        <img src="/public/uploads/pictures/<%= product.img %>" alt="">
+                        <p>
+                            <%= product.name %>
+                                <br>Preço: R$ <%= product.price %>,00
+                                    <br>
+                                    <%= product.availability %>
+                                        <br>
+                                        <a id="details" href="/productDetails/<%= product._id %>">Detalhes</a>
+                        </p>
+                    </div>
+                    <% } %>
+                        <% }) %>
+
+
+
+        </div>
+
+
+    </section>
+
+    <a class="whatsapp-contact" href="https://api.whatsapp.com/send?phone=5547997078204"></a>
+
+    <a class="back-to-top" href="#">Voltar ao topo</a>
+
+    <%- include('includes/footer') %>
