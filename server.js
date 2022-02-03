@@ -60,9 +60,9 @@ app.use(routes);
 
 // Para que comece a escutar somente depois que estiver conectado no dB
 app.on('pronto', () => {
-    app.listen(3000, () => {
-        console.log('Acessar http://localhost:3000');
-        console.log('Servidor executando na porta 3000')
+    app.listen(3002, () => {
+        console.log('Acessar http://localhost:3002');
+        console.log('Servidor executando na porta 3002')
     });
 })
 
