@@ -6,6 +6,11 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/products">Produtos</a></li>
                 <li><a href="/promocao">Promoções</a></li>
+
+                <% if (user) { %>
+                    <li><a href="/product/index">Admin</a></li>
+                    <% } %>
+
             </ul>
         </nav>
     </div>
