@@ -78,17 +78,43 @@ p {
     background-color: var(--white-color);
 }
 
-.menu-section {
-    background-color:var(--white-color);
-    width: 100%;
-    border-bottom: 0.15rem solid var(--grey-color);
+.menu-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
-.menu {
+.close-menu {
+    display: none;
+}
+
+.menu h1 {
+    font-size: 2.3rem;
+    color: var(--primary-color);
+}
+
+.menu h1 a {
+    color: inherit;
+}
+
+.menu ul {
+    list-style: none;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
+}
+
+.menu ul li a {
+    display: block;
+    padding: 2rem;
+    font-size: 1.8rem;
+    color: var(--orange-color);
+    position: relative;
+}
+
+.white-bg {
+    background: var(--white-color);
+    color: var(--primary-color);
 }
 
 .logo {
@@ -110,6 +136,40 @@ p {
 .menu-nav ul li a {
     color: var(--orange-color);
 }
+
+
+/* .menu-section {
+    background-color:var(--white-color);
+    width: 100%;
+    border-bottom: 0.15rem solid var(--grey-color);
+} */
+
+/* .menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+} */
+
+/* .logo {
+    display: flex;
+    justify-content: center;
+}
+
+.logo a img {
+   margin: 2rem;
+} */
+
+/* .menu-nav ul li {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.5rem;
+    display: inline;
+    padding: 0 var(--gap);
+}
+
+.menu-nav ul li a {
+    color: var(--orange-color);
+} */
 
 .intro-content {
     display: grid;
@@ -387,14 +447,60 @@ form label {
         max-height: 28rem;
     }
 
-    .menu-nav ul li {
+    .menu {
+        bottom: 0;
+        text-align: center;
+    }
+
+    .menu-content, .menu-content ul {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* .menu-content {
+        height: 100vh;
+    } */
+
+    .menu {
+        display: none;
+    }
+
+
+    .close-menu-label::after {
+        content: '≡';
+        z-index: 2;
+        /* top: 1rem;
+        right: 0;  */
+        color: var(--orange-color);
+        font-size: 3rem;
+        line-height: 3rem;
+        /* width: 3rem;
+        height: 3rem; */
+        text-align: center;
+        padding-left: 1.5rem;
+        cursor: pointer;
+    }
+
+    .close-menu:checked~.menu {
+        display: block;
+    }
+
+    .close-menu:checked~.close-menu-label:after {
+        content: '×';
+    }
+
+    .menu-spacing {
+        display: none;
+    }
+
+    /* .menu-nav ul li {
         padding: 1rem;
         font-size: 1rem;
     }
 
     .logo a img {
         margin-bottom: 0;
-    }
+    } */
 
     /* .menu {
         display: none;         
