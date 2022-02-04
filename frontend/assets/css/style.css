@@ -5,6 +5,7 @@
     --orange-color: #e8630a;
     --blue-color: #a8b2ce;
     --grey-color2: #696969;
+    --dark-gray-color: #514747;
     --gap: 2rem;
 }
 
@@ -22,7 +23,7 @@ html {
 body {
     font-family: 'Zen Kaku Gothic Antique', sans-serif;
     font-size: 2rem;
-    color: var(--orange-color);
+    color: var(--dark-gray-color);
     line-height: 1.5;
 }
 
@@ -30,19 +31,19 @@ h1 {
     font-family: 'Fredoka One', cursive;
     font-size: 8rem;
     margin-bottom: 2rem;
-    color: var(--orange-color);
+    color: var(--dark-gray-color);
     
 }
 
 h2 {
-    font-family: 'Fredoka One', cursive;
+    font-family: sans-serif;
     font-size: 4rem;
     margin-bottom: 5rem;
     line-height: 1.2;
 }
 
 h3 {
-    font-family: 'Fredoka One', cursive;
+    font-family: sans-serif;
     font-size: 2rem;
     /* text-align: left; */
 }
@@ -52,7 +53,7 @@ a {
 }
 
 p {
-    font-family: 'Fredoka One', cursive;
+    font-family: sans-serif;
     font-size: 2rem;
     padding: 1rem;
     margin-bottom: 0rem;
@@ -108,7 +109,7 @@ p {
     display: block;
     padding: 2rem;
     font-size: 1.8rem;
-    color: var(--orange-color);
+    color: var(--dark-gray-color);
     position: relative;
 }
 
@@ -134,7 +135,7 @@ p {
 }
 
 .menu-nav ul li a {
-    color: var(--orange-color);
+    color: var(--dark-gray-color);
 }
 
 
@@ -374,7 +375,7 @@ form label {
   } */
 
   #details {
-      color: var(--orange-color);
+      color: var(--dark-gray-color);
   }
 
 .product-details {
@@ -471,7 +472,7 @@ form label {
         z-index: 2;
         /* top: 1rem;
         right: 0;  */
-        color: var(--orange-color);
+        color: var(--dark-gray-color);
         font-size: 3rem;
         line-height: 3rem;
         /* width: 3rem;
