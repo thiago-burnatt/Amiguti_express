@@ -49,14 +49,15 @@
                 <% if(!product.salePrice && product.specialSection !== 'on') { %>
 
                     <div class="gallery-img">
-                        <img src="/public/uploads/pictures/<%= product.img %>" alt="">
+                        <a id="details" href="/productDetails/<%= product._id %>"><img src="/public/uploads/pictures/<%= product.img %>" alt=""></a>
+                        
                         <p>
                             <%= product.name %>
                                 <br>Preço: R$ <%= product.price %>,00
                                     <br>
                                     <%= product.availability %>
                                         <br>
-                                        <a id="details" href="/productDetails/<%= product._id %>">Detalhes</a>
+                                        
                         </p>
                     </div>
                     <% } %>
