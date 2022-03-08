@@ -417,6 +417,10 @@ form label {
     margin-bottom: 20px;
 }
 
+.mandatory-fields {
+    font-size: 1.3rem;
+}
+
 
 @media (max-width: 700px) {
     .logo a img {
